@@ -5,11 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import br.com.gft.calculadora.model.entities.Calculadora;
 import br.com.gft.calculadora.model.exceptions.NotANumberException;
 
+@TestMethodOrder(OrderAnnotation.class)
 class CalculadoraTest {
 
 	@BeforeAll
@@ -24,8 +28,9 @@ class CalculadoraTest {
 
 	@Test
 	@DisplayName("SUM positives => positive")
+	@Order(1)
 	public void shouldSumPositivesReturnPositive() throws Exception {
-		System.out.println("SUM Positives");
+		System.out.println("SUM Positives - 1");
 		assertSoma();
 	}
 
